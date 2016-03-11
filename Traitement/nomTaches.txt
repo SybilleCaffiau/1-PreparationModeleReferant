@@ -1,0 +1,6 @@
+Root Regarder des photos
+1 Regarder une photo
+1.1 Sélectionner un ensemble de photo
+1.2 Sélectionner une photo dans l'ensemble
+1.3 Visualiser la photo
+2 Regarder un ensemble (pré defini) de photos
