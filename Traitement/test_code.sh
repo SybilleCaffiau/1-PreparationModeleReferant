@@ -54,19 +54,22 @@ do
 	fstrmepsilon n1test.fst | fstarcsort > n1test_rm.fst
 	fstrmepsilon ntest.fst | fstarcsort > ntest_rm.fst
 	
-	fstreplace n1test_rm.fst 1 ntest_rm.fst $l | fstarcsort > MdT1.fst
+	#fstreplace --epsilon_on_replace n1test_rm.fst 1 ntest_rm.fst $l | fstarcsort > MdT1.fst
+	fstreplace --epsilon_on_replace n1test_rm.fst 1 ntest_rm.fst $l | fstarcsort > $res
 	#fstreplace --epsilon_on_replace n1test_rm.fst 1 ntest_rm.fst $l | fstrmepsilon | fstarcsort > $res
-
+	#MDT1.fst est OK mais pb quand rm epsilon 
+	
 	#fstprint --isymbols=$noml --osymbols=$noml $res
-	fstrmepsilon MdT1.fst | fstarcsort > $res
+	#fstrmepsilon MdT1.fst | fstarcsort > $res
 	
 	read -p 'Quel est l automate de bas niveau (.fst) ? - stop pour arreter ' A1
 done
 
-read -p 'Il faut à présent mettre le modèle de tâches dans un format particulier pour permettre le traitement de celui-ci dans les autres étapes. Comment voulez vous nommer ce model au format - notez ce nom, c est ce modèle qui servira (.fst) ?' r
+#read -p 'Il faut à présent mettre le modèle de tâches dans un format particulier pour permettre le traitement de celui-ci dans les autres étapes. Comment voulez vous nommer ce model au format - notez ce nom, c est ce modèle qui servira (.fst) ?' r
 
-g++ -std=c++11 -I ../../../EvaluationMaquetteMdT/VerifMaquettesMdTCogtool/testCpp/openfst-1.5.0/src/include verifFormatMdT.cpp -L ../../../EvaluationMaquetteMdT/VerifMaquettesMdTCogtool/testCpp/openfst-1.5.0/src/lib -lfst -o formate
+#g++ -std=c++11 -I ../../../EvaluationMaquetteMdT/VerifMaquettesMdTCogtool/testCpp/openfst-1.5.0/src/include verifFormatMdT.cpp -L ../../../EvaluationMaquetteMdT/VerifMaquettesMdTCogtool/testCpp/openfst-1.5.0/src/lib -lfst -o formate
 
-./formate $res $r
+#./formate $res $r
+
 
 echo "Fin du processus de transformation, votre fichier résultat final contenant l'automate plat complet est nommé $r"
