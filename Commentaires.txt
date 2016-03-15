@@ -1,0 +1,10 @@
+Commentaires 
+
+
+-Format du fichier input : .kxml
+-Dernière tâche ne peut pas être itérative
+-Pas de traitement pour les tâches optionnelles
+-Tâches paralleles traités comme alternatives
+-Il n'y a pas un ordre dans le traitement
+-Tests faits uniquement avec fichiers KMADE version 1.3
+-Format du fichier output : .txt (automate globale)
