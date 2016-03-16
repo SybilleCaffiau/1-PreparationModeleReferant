@@ -1,0 +1,13 @@
+Racine    Faire une randonnée à ski
+1 Aller au point de départ
+2 Aller à l'objectif
+2.1 Faire le trajet
+2.1.1 Avancer
+2.1.2 Interrompre le trajet
+2.1.2.1 Faire une pause
+2.1.2.2 Subir un incident
+2.2 Analyser la situation courante
+2.2.1 Evaluer les conditions de randonnée
+2.2.2 Prendre une décision
+2.3 Faire des rencontres
+3 Rentrer

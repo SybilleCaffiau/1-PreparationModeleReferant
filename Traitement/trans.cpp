@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
 			    	//on cree une transition en inversant les labels
 			    	//(dep, arc(labelin,labelout,poid,fin)
 			    	lprod=matcher.Value().olabel;
-			   		n1->AddArc(0, StdArc(matcher.Value().olabel, l, 1, 0));
+			   		n1->AddArc(siter.Value(), StdArc(matcher.Value().olabel, l, 1, matcher.Value().nextstate));
   				}
 	}
      

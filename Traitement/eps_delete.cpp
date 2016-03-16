@@ -42,15 +42,10 @@ void fusionner(string fichierAutomate, string fichierAutomateSortie, int num_sta
 	if(a) {
 		if(a2){
 			getline(a, ligne);
-		
 			while(!a.eof()){
-				
 				ligne=ligne+" 1";
 				buffer.str("");
-				buffer.str(ligne);
-			
-							
-			
+				buffer.str(ligne);		
 				cout << "taille du buffer : "<<buffer.str().size() << endl; 
 				
 				if(buffer.str().size()>4){
@@ -65,93 +60,45 @@ void fusionner(string fichierAutomate, string fichierAutomateSortie, int num_sta
 					if((li=="eps")&&(lo=="eps")){
 					}
 					else{
-						if(ns1==smax){
-							a2<<smin;
-							a2<<" ";
-						}
+						if(ns1==smax){a2<<smin;a2<<" ";}
 						else{
-							if(ns1>smax){
-								a2<<ns1-1;
-								a2<<" ";
-							}
-							else{
-								a2<<ns1;
-								a2<<" ";
-							}
-	
+							if(ns1>smax){a2<<ns1-1;a2<<" ";}
+							else{a2<<ns1;a2<<" ";}
 						}
 	
-						if(ns2==smax){
-							a2<<smin;
-							a2<<" ";
-						}
+						if(ns2==smax){a2<<smin;a2<<" ";}
 						else{
-							if(ns2>smax){
-								a2<<ns2-1;
-								a2<<" ";
-							}
-							else{
-								a2<<ns2;
-								a2<<" ";
-							}
-	
+							if(ns2>smax){a2<<ns2-1;a2<<" ";}
+							else{a2<<ns2;a2<<" ";}
 						}
-			
-						
 						a2<<li;
 						a2<<" ";
-		
-						
 						a2<<lo;
 						a2<<" ";
-						
 						a2<<endl;	
 					}
 				}
-					
+
 				if(buffer.str().size()<4){
-						
 					cout << "contenu du nouveau buffer : " <<buffer.str()<<endl;
-				
 					buffer>>ns1;
 					cout << "ns1 : " <<ns1<< endl;
 						
-					if(ns1==smax){
-						a2<<smin;
-						a2<<" ";
-					}
+					if(ns1==smax){a2<<smin;a2<<" ";}
 					else{
-						if(ns1>smax){
-							a2<<ns1-1;
-							a2<<" ";
-						}
-						else{
-							a2<<ns1;
-							a2<<" ";
-						}
-	
+						if(ns1>smax){a2<<ns1-1;a2<<" ";}
+						else{a2<<ns1;a2<<" ";}
 					}
 					a2<<endl;
-
 				}
-	
-			getline(a, ligne);
-			
-
-				
-				
+				getline(a, ligne);				
 			}
-			a.close();
 			a2.close();
 		}
-		else
-			cout << "Impossible d'ouvrir l'un des fichiers!"<<endl;
+		else{cout << "Impossible d'ouvrir l'un des fichiers!"<<endl;}
+		a.close();
 	}
-	
-	else
-		cout << "Impossible d'ouvrir l'un des fichiers!"<<endl;
-	
-	
+	else{cout << "Impossible d'ouvrir l'un des fichiers!"<<endl;}
 }
 
 
