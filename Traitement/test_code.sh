@@ -10,6 +10,8 @@ read noml
 
 echo "la première étape est de produire tous les automates à partir des fichiers textes (stop pour arreter) "
 
+g++ -std=c++11 -I ../../../EvaluationMaquetteMdT/VerifMaquettesMdTCogtool/testCpp/openfst-1.5.0/src/include eps_delete.cpp -L ../../../EvaluationMaquetteMdT/VerifMaquettesMdTCogtool/testCpp/openfst-1.5.0/src/lib -lfst -o formate
+
 read -p 'Nom du fichier à convertir (.txt) : ' model
 until [ $model == 'stop' ]
 do
@@ -56,20 +58,19 @@ do
 	
 	#fstreplace --epsilon_on_replace n1test_rm.fst 1 ntest_rm.fst $l | fstarcsort > MdT1.fst
 	fstreplace --epsilon_on_replace n1test_rm.fst 1 ntest_rm.fst $l | fstarcsort > $res
-	#fstreplace --epsilon_on_replace n1test_rm.fst 1 ntest_rm.fst $l | fstrmepsilon | fstarcsort > $res
-	#MDT1.fst est OK mais pb quand rm epsilon 
+
+	read -p 'Quel est le nom du fichier pour sauvegarder l automate en text (.txt) ? ' r
+
+	fstprint --isymbols=$noml --osymbols=$noml $res > $r
+	read -p 'Quel est le nom du fichier pour l automate sans transitions eps/eps (.txt) ? ' r1
+
+	./formate $r $r1
 	
-	#fstprint --isymbols=$noml --osymbols=$noml $res
-	#fstrmepsilon MdT1.fst | fstarcsort > $res
+	fstcompile --isymbols=$noml --osymbols=$noml r1 | fstarcsort > $res
+	
 	
 	read -p 'Quel est l automate de bas niveau (.fst) ? - stop pour arreter ' A1
 done
-
-#read -p 'Il faut à présent mettre le modèle de tâches dans un format particulier pour permettre le traitement de celui-ci dans les autres étapes. Comment voulez vous nommer ce model au format - notez ce nom, c est ce modèle qui servira (.fst) ?' r
-
-#g++ -std=c++11 -I ../../../EvaluationMaquetteMdT/VerifMaquettesMdTCogtool/testCpp/openfst-1.5.0/src/include verifFormatMdT.cpp -L ../../../EvaluationMaquetteMdT/VerifMaquettesMdTCogtool/testCpp/openfst-1.5.0/src/lib -lfst -o formate
-
-#./formate $res $r
 
 
 echo "Fin du processus de transformation, votre fichier résultat final contenant l'automate plat complet est nommé $r"
