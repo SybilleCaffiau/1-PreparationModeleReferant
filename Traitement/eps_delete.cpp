@@ -10,7 +10,7 @@ using namespace std;
 
 //fonction qui fusionne les états identiques 
 void fusionner(string fichierAutomate, string fichierAutomateSortie, int num_state1, int num_state2){
-	cout<< "dans fusionner pour les états : "<<num_state1 <<" et "<<num_state2<< endl;
+	//cout<< "dans fusionner pour les états : "<<num_state1 <<" et "<<num_state2<< endl;
 	
 	//valeur numerique des états tel que smin<smax
 	int smin;
@@ -46,17 +46,17 @@ void fusionner(string fichierAutomate, string fichierAutomateSortie, int num_sta
 				ligne=ligne+" 1";
 				buffer.str("");
 				buffer.str(ligne);		
-				cout << "taille du buffer : "<<buffer.str().size() << endl; 
+				//cout << "taille du buffer : "<<buffer.str().size() << endl; 
 				
 				if(buffer.str().size()>4){
 					buffer>>ns1;
-					cout << "ns1 : " <<ns1<< endl;
+					//cout << "ns1 : " <<ns1<< endl;
 					buffer>>ns2;
-					cout << "ns2 : " <<ns2<< endl;						
+					//cout << "ns2 : " <<ns2<< endl;						
 					buffer>>li;
-					cout << "li : " <<li<< endl;
+					//cout << "li : " <<li<< endl;
 					buffer>>lo;
-					cout << "lo : " <<lo<< endl;
+					//cout << "lo : " <<lo<< endl;
 					if((li=="eps")&&(lo=="eps")){
 					}
 					else{
@@ -80,9 +80,9 @@ void fusionner(string fichierAutomate, string fichierAutomateSortie, int num_sta
 				}
 
 				if(buffer.str().size()<4){
-					cout << "contenu du nouveau buffer : " <<buffer.str()<<endl;
+					//cout << "contenu du nouveau buffer : " <<buffer.str()<<endl;
 					buffer>>ns1;
-					cout << "ns1 : " <<ns1<< endl;
+					//cout << "ns1 : " <<ns1<< endl;
 						
 					if(ns1==smax){a2<<smin;a2<<" ";}
 					else{
@@ -132,34 +132,33 @@ int main(int argc, char *argv[]){
 		getline(a, ligne);
 		
 		while(!a.eof()){
-			cout << endl;
-			cout << "changement de ligne " << endl;
-			cout << "taille dde la ligne : "<<ligne.size() << endl; 
+			//cout << endl;
+			//cout << "changement de ligne " << endl;
+			//cout << "taille dde la ligne : "<<ligne.size() << endl; 
 			ligne=ligne+" 1";
 			buffer.str("");
 			buffer.str(ligne);
 			
 			
-			cout << "taille du buffer : "<<buffer.str().size() << endl; 
+			//cout << "taille du buffer : "<<buffer.str().size() << endl; 
 			if(buffer.str().size()>4){
-				cout << "contenu du nouveau buffer : " <<buffer.str()<<endl;
+				//cout << "contenu du nouveau buffer : " <<buffer.str()<<endl;
 			
 				buffer>>ns1;
-				cout << "ns1 : " <<ns1<< endl;
+				//cout << "ns1 : " <<ns1<< endl;
 			
 				buffer>>ns2;
-				cout << "ns2 : " <<ns2<< endl;
+				//cout << "ns2 : " <<ns2<< endl;
 		
 				buffer>>li;
-				cout << "li : " <<li<< endl;
+				//cout << "li : " <<li<< endl;
 	
 				buffer>>lo;
-				cout << "lo : " <<lo<< endl;
+				//cout << "lo : " <<lo<< endl;
 				
 				if((li=="eps") &&(lo=="eps")){
-
-					cout << "ns1 : " << s1 << endl;
-					cout << "ns2 : " << s2 << endl;
+					//cout << "ns1 : " << s1 << endl;
+					//cout << "ns2 : " << s2 << endl;
 					if(trans_eps_eps){
 					//on a déjà trouvé une transition eps eps
 						if((s1==ns2) && (s2==ns1)){							
@@ -176,11 +175,8 @@ int main(int argc, char *argv[]){
 						s2=ns2;
 					}
 				}
-
 			}
 			getline(a, ligne);
-			
-			
 		}
 		a.close();
 	}
