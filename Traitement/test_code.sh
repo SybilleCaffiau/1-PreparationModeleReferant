@@ -57,11 +57,11 @@ do
 	fstrmepsilon ntest.fst | fstarcsort > ntest_rm.fst
 	
 	#fstreplace --epsilon_on_replace n1test_rm.fst 1 ntest_rm.fst $l | fstarcsort > MdT1.fst
-	fstreplace --epsilon_on_replace n1test_rm.fst 1 ntest_rm.fst $l | fstarcsort > $res
+	fstreplace --epsilon_on_replace n1test_rm.fst 1 ntest_rm.fst $l | fstarcsort > MdT1.fst
 
 	read -p 'Quel est le nom du fichier pour sauvegarder l automate en text (.txt) ? ' r
 
-	fstprint --isymbols=$noml --osymbols=$noml $res > $r
+	fstprint --isymbols=$noml --osymbols=$noml MdT1.fst > $r
 	read -p 'Quel est le nom du fichier pour l automate sans transitions eps/eps (.txt) ? ' r1
 
 	./formate $r $r1
